@@ -6,7 +6,7 @@ import { ROUTES } from '../../utils/routes';
 
 import styles from '../../styles/Product.module.css';
 
-// import { addItemToCart } from '../../features/user/userSlice';
+import { addItemToCart } from '../../features/user/userSlice';
 
 const SIZES = [4, 4.5, 5];
 
@@ -25,7 +25,7 @@ const Product = (item) => {
   }, [images]);
 
   const addToCart = () => {
-    // dispatch(addItemToCart(item));
+    dispatch(addItemToCart(item));
   };
 
   return (
@@ -67,7 +67,7 @@ const Product = (item) => {
         <p className={styles.description}>{description}</p>
 
         <div className={styles.actions}>
-          <button className={styles.add} disabled={!currentSize}>
+          <button onClick={addToCart} className={styles.add} disabled={!currentSize}>
             Add to cart
           </button>
           <button className={styles.favourite}>Add to favourites</button>
